@@ -43,11 +43,11 @@
 						<?php if(isset($_SESSION['login'])):?>
 							<?php if($_SESSION['login']=='admin'):?>
 								歡迎，<?=$_SESSION['login'];?><br>
-								<button>管理</button>
-								<button>登出</button>
+								<button onclick="location.href='back.php'">管理</button>
+								<button onclick="location.href='logout.php'">登出</button>
 							<?php else: ?>
 								歡迎，<?=$_SESSION['login'];?>
-								<button>登出</button>
+								<button onclick="location.href='logout.php'">登出</button>
 							<?php endif;?>
 
 						<?php else: ?>
