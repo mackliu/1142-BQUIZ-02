@@ -32,8 +32,8 @@ class DB{
     function find($id){
          $sql="SELECT * FROM $this->table ";        
             
-        if(is_array($arg[0])){
-            $where=$this->array2sql($arg[0]);
+        if(is_array($id)){
+            $where=$this->array2sql($id);
             $sql .= " WHERE ".join(" AND ",$where);
         }else{
             $sql .= " WHERE `id`='{$id}'";
@@ -54,15 +54,15 @@ class DB{
             $sql="INSERT INTO $this->table (`".join("`,`",$cols)."`) VALUES('".join("','",$array)."')";
         }
 
-
+        echo $sql;
         return $this->pdo->exec($sql);
 
     }
     function del($id){
          $sql="DELETE FROM $this->table ";        
             
-        if(is_array($arg[0])){
-            $where=$this->array2sql($arg[0]);
+        if(is_array($id)){
+            $where=$this->array2sql($id);
             $sql .= " WHERE ".join(" AND ",$where);
         }else{
             $sql .= " WHERE `id`='{$id}'";
@@ -118,6 +118,12 @@ class DB{
     }
 }
 
+function dd($array){
+    echo "<pre>";
+    print_r($array);
+    echo "</pre>";
+}
+
 function to($url){
     header("location:".$url);
 }
@@ -129,3 +135,4 @@ function q($sql){
 }
 
 
+$Total=new DB('total');
