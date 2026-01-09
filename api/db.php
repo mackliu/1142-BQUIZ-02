@@ -54,7 +54,7 @@ class DB{
             $sql="INSERT INTO $this->table (`".join("`,`",$cols)."`) VALUES('".join("','",$array)."')";
         }
 
-        echo $sql;
+        //echo $sql;
         return $this->pdo->exec($sql);
 
     }
@@ -137,3 +137,20 @@ function q($sql){
 
 $Total=new DB('total');
 $Mem=new DB('member');
+
+
+
+
+
+
+if(!isset($_SESSION['total'])){
+    $today=$Total->find(['date'=>date("Y-m-d")]);
+    if(empty($today)){
+        $Total->save(['date'=>date("Y-m-d"),'total'=>1]);
+    }else{
+        $today['total']=$today['total']+1;
+        $Total->save($today);
+
+    }
+    $_SESSION['total']=1;
+}
