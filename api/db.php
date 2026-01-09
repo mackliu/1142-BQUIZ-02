@@ -131,8 +131,9 @@ function to($url){
 function q($sql){
     $dsn="mysql:host=localhost;charset=utf8;dbname=db12";
     $pdo=new PDO($dsn,'root','');
-    return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOCE);
+    return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
 $Total=new DB('total');
+$Mem=new DB('member');
