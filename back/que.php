@@ -16,9 +16,6 @@
         <input type="reset" value="清空">
     </form>
 </fieldset>
-
-
-
 <script>
     function more(){
         let opt=`<div>
