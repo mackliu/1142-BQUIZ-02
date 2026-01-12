@@ -25,6 +25,7 @@ foreach($posts as $idx => $post):
     </td>
     <td>
         <input type="checkbox" name="del[]" value="<?=$post['id'];?>">
+        <input type="hidden" name="id[]" value="<?=$post['id'];?>">
     </td>
 </tr>
 <?php 
