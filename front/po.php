@@ -17,18 +17,34 @@
 <fieldset style="width:70%;padding:10px;display:inline-block">
     <legend>文章列表</legend>
     <div class="list"></div>
-    <div class="content"></div>
+    <div class="content" style='display:none'></div>
 </fieldset>
 
 <script>
+getList(1);
+    
 $(".po-item").on("click",function(){
     let item=$(this).text();
     $("#nav").text(item);
     let type=$(this).data('type')
     //console.log(type)
-
-    $.get("./api/get_list.php",{type},(list)=>{
-        $(".list").html(list);
-    })
+    getList(type);
 })
+
+function getList(type){
+        $.get("./api/get_list.php",{type},(list)=>{
+        $(".list").html(list);
+        $(".list").show();
+        $(".content").hide();
+    })
+}
+
+function getPost(id){
+    $.get("./api/get_post.php",{id},(post)=>{
+        $(".content").html(post)
+        $(".list").hide();
+        $(".content").show();
+    })
+}
+
 </script>
