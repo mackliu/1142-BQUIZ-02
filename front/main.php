@@ -14,10 +14,12 @@
     margin-left:-1px;
     cursor: pointer;
     background:#eee;
+    border-radius:10px 10px 0 0;
 
 }
 .tags li.active{
     background:white;
+    border-bottom:white;
 }
 
 .article{
