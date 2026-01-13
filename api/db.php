@@ -143,7 +143,7 @@ $Total=new DB('total');
 $Mem=new DB('member');
 $Post=new DB('post');
 $Que=new DB('que');
-
+$Log=new DB('log');
 
 
 
