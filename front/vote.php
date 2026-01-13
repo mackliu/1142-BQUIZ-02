@@ -18,6 +18,16 @@ foreach($options as $option){
 
 ?>
 
-<div class="ct"><button>我要投票</button></div>
+<div class="ct">
+    <button onclick="vote()">我要投票</button>
+</div>
 
 </fieldset>
+<script>
+function vote(){
+    let id=$("input[type='radio']:checked").val()
+    $.post("./api/vote.php",{id},()=>{
+        location.href="?do=result&id=<?=$_GET['id'];?>"
+    })
+}
+</script>
