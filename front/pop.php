@@ -19,8 +19,18 @@
     foreach($posts as $post):
     ?>
     <tr>
-        <td><?=$post['title'];?></td>
-        <td><?=mb_substr($post['text'],0,25);?>...</td>
+        <td class='title'><?=$post['title'];?></td>
+        <td class='post'>
+            <span class='short'>
+                <?=mb_substr($post['text'],0,25);?>...
+            </span>
+            <span class='full' style='display:none'>
+                <?php
+                    echo "<h3 style='color:skyblue'>".$Post->type[$post['type']]."</h3>";
+                    echo nl2br($post['text']);
+                ?>
+            </span>
+        </td>
         <td></td>
     </tr>
     <?php
@@ -50,3 +60,14 @@
 
 
 </fieldset>
+<script>
+$(".title").hover(
+    function(){
+        $("#alert").html($(this).next().children('.full').html()).show()
+    },
+    function(){
+        $("#alert").hide();
+    }
+)
+
+</script>

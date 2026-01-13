@@ -19,8 +19,15 @@
     foreach($posts as $post):
     ?>
     <tr>
-        <td><?=$post['title'];?></td>
-        <td><?=mb_substr($post['text'],0,25);?>...</td>
+        <td class='title'><?=$post['title'];?></td>
+        <td class='post'>
+            <span class='short'>
+                <?=mb_substr($post['text'],0,25);?>...
+            </span>
+            <span class='full' style='display:none'>
+                <?=nl2br($post['text']);?>
+            </span>
+        </td>
         <td></td>
     </tr>
     <?php
@@ -48,5 +55,9 @@
    ?>
 </div>
 
-
 </fieldset>
+<script>
+$(".title").on("click",function(){
+    $(this).next().children('.short,.full').toggle();
+})
+</script>
