@@ -23,7 +23,7 @@
             <td>
                 <?php
                 if(isset($_SESSION['login'])){
-                    echo "<a href='#'>參與投票</a>";
+                    echo "<a href='?do=vote&id={$que['id']}'>參與投票</a>";
                 }else{
                     echo "請先登入";
                 }
